@@ -1,0 +1,13 @@
+footer {
+    display: flex;
+    background-color: #0072E1;
+    padding: 50px 20px;
+}
+
+footer .link_list {
+    flex-direction: column;
+}
+
+footer .link_list li:not(:last-child) {
+    margin-bottom: 20px;
+}
