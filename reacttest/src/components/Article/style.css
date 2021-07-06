@@ -1,7 +1,7 @@
 .article {
     padding: 80px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .article_info {
@@ -14,4 +14,23 @@
 
 .reverse .article_info {
     order: -1;
+}
+
+@media screen and (max-width: 1260px) {
+    .article {
+        flex-direction: column;
+    }
+
+    .article_img {
+        order: 2;
+    }
+
+    .article_info {
+        order: 1;
+        margin-bottom: 50px;
+    }
+
+    .reverse .article_info {
+        order: 1;
+    }
 }

@@ -30,3 +30,13 @@ ul {
     font-size: 25px;
     padding: 12px 20px;
 }
+
+.teamCards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.teamCards .authorCard {
+    width: 45%;
+    margin: 0 auto 20px;
+}
