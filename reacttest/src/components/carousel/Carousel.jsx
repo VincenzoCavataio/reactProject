@@ -8,7 +8,7 @@ export class Carousel extends Component {
         return (
             <div className='Carousel'>
                 <div className="slideShow">
-                    <div>
+                    <div className="arrow_container">
                         <FontAwesomeIcon className='arrow' icon={faChevronLeft} />
                     </div>
                     <div className="slide">
@@ -19,7 +19,7 @@ export class Carousel extends Component {
                             <a>{this.props.link}</a>
                         </div>
                     </div>
-                    <div>
+                    <div className="arrow_container">
                         <FontAwesomeIcon className='arrow' icon={faChevronRight} />    
                     </div>
                 </div>

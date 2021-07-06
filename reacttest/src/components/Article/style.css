@@ -1,0 +1,17 @@
+.article {
+    padding: 80px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.article_info {
+    padding: 0 40px;
+}
+
+.article_img img {
+    width: 600px;
+}
+
+.reverse .article_info {
+    order: -1;
+}
