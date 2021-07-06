@@ -12,6 +12,7 @@ import PageOne from "./pages/PageOne";
 import Article from "./components/Article";
 import AuthorCard from "./components/AuthorCard";
 import TeamSection from './components/TeamSection'
+//ricordo di fare array e array 
 
 ReactDOM.render(
   <React.StrictMode>
@@ -78,7 +79,7 @@ ReactDOM.render(
       
       <Jumbotron
         imgUrl="https://ilreporter.it/wp-content/uploads/2020/05/viaggi-estero-coronavirus-696x522.jpg"
-        title="Qui trovia ltri articoli sui viaggi"
+        title="Qui trovia altri articoli sui viaggi"
         clame="molto altro nelle nostre rubriche"
         action="altri articoli"
         btnClass="btn white big"
