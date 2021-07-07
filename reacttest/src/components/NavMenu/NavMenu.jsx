@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Link } from 'react-router-dom';
 import './style.css'
 
 export class NavMenu extends Component {
@@ -12,7 +13,7 @@ export class NavMenu extends Component {
                     <ul className='link_list'>
                         {
                             this.props.links.map((element, index) => {
-                               return <li key={index}>{element}</li>
+                               return <li key={index}><a href={`http://localhost:3000/${element}`} >{element}</a></li>
                             })
                         }
                     </ul>
