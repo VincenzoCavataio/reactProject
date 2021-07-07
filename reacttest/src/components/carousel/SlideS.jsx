@@ -3,7 +3,8 @@ import styled from "styled-components";
 const SlideS = styled.div`
   position: relative;
   /* width: 90%; */
-  height: 300px;
+  /* height: 300px; */
+  width: 80%;
   display: none;
 
   &.active {
@@ -11,7 +12,7 @@ const SlideS = styled.div`
   }
 
   img {
-    /* width: 100%; */
+    width: 100%;
     height: 100%;
   }
 

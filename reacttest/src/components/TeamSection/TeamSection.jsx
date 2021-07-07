@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
-import './style.css'
+/* import './style.css' */
+import TeamSectionS from './TeamSectionS'
 
 export class TeamSection extends Component {
     render() {
         return (
-            <div className='team'>
+            <TeamSectionS >
                 <h1>The Team</h1>
                 <div className='teamCards'>
                     {this.props.children}
                 </div>
-            </div>
+            </TeamSectionS>
         )
     }
 }
