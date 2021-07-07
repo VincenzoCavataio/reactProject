@@ -31,7 +31,7 @@ ul {
     padding: 12px 20px;
 }
 
-.teamCards {
+/* .teamCards {
     display: flex;
     flex-wrap: wrap;
 }
@@ -39,7 +39,7 @@ ul {
 .teamCards .authorCard {
     width: 45%;
     margin: 0 auto 20px;
-}
+} */
 
 a {
     text-decoration: none;
@@ -49,7 +49,7 @@ a {
 a:hover {
     color: black;
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .teamCards {
         flex-direction: column;
     }
@@ -57,4 +57,4 @@ a:hover {
     .teamCards .authorCard {
         width: 90%;
     }
-}
+} */

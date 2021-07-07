@@ -28,6 +28,19 @@ const SlideS = styled.div`
     color: white;
     margin-bottom: 10px;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+
+    .slide_description {
+      display: none;
+    }
+
+    .img_info {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 `;
 
 export default SlideS;
