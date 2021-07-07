@@ -40,3 +40,13 @@ ul {
     width: 45%;
     margin: 0 auto 20px;
 }
+
+@media screen and (max-width: 768px) {
+    .teamCards {
+        flex-direction: column;
+    }
+
+    .teamCards .authorCard {
+        width: 90%;
+    }
+}

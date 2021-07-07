@@ -9,9 +9,10 @@
     width: 80px;
     height: 80px;
     background-color: azure;
-    border-radius: 200px;
+    border-radius: 40px;
     overflow: hidden;
     margin-right: 30px;
+    flex-shrink: 0;
 }
 
 .avatar img {

@@ -16,6 +16,7 @@
     order: -1;
 }
 
+
 @media screen and (max-width: 1260px) {
     .article {
         flex-direction: column;
@@ -32,5 +33,11 @@
 
     .reverse .article_info {
         order: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .article_img img {
+        width: 100%;
     }
 }

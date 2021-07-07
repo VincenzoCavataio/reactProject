@@ -12,7 +12,34 @@ import PageOne from "./pages/PageOne";
 import Article from "./components/Article";
 import AuthorCard from "./components/AuthorCard";
 import TeamSection from './components/TeamSection'
-//ricordo di fare array e array 
+//ricordo di fare array e oggetti vari
+//cambio pagine
+
+//fakeData
+const Gallery = [
+  {
+    id: 1,
+    img: "https://i.pinimg.com/originals/c2/05/4c/c2054cd58c7e0f42744bdb84b17faae4.jpg",
+    title: "Foresta Nera",
+    description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+    links: "articoli riguardo al Foresta Nera"
+  },
+  {
+    id: 2,
+    img: "https://www.panorama.it/media-library/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yNDQzOTI3MC9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTY0MjEyMTczNH0.SOelXuarXHvwyznoiETVBo5LSTrl4-A84eybBxXtqv0/image.jpg?width=1200&coordinates=0%2C125%2C0%2C125&height=600",
+    title: "Foresta Nera",
+    description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+    links: "articoli riguardo al Foresta Nera"
+  },
+  {
+    id: 3,
+    img: "https://cdn.pixabay.com/photo/2018/06/20/18/39/mediterranean-3487098_960_720.jpg",
+    title: "Foresta Nera",
+    description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
+    links: "articoli riguardo al Foresta Nera"
+  }
+]
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -34,19 +61,16 @@ ReactDOM.render(
           /*ci va la props info, per pulizia ora la metto in state* info={array}*/ cardClass=""
         />
         <Carousel
-          img="https://i.pinimg.com/originals/c2/05/4c/c2054cd58c7e0f42744bdb84b17faae4.jpg"
-          title="Foresta Nera"
-          description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-          links="articoli riguardo al Foresta Nera"
+          imgs={Gallery}
         />
       </PageOne>
       <PageOne pageTitle='About'>
-        <Carousel
+        {/* <Carousel
           img="https://i.pinimg.com/originals/c2/05/4c/c2054cd58c7e0f42744bdb84b17faae4.jpg"
           title="Foresta Nera"
           description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
           links="articoli riguardo al Foresta Nera"
-        />
+        /> */}
         <InfoCard
             /*ci va la props info, per pulizia ora la metto in state* info={array}*/ cardClass=""
         />
