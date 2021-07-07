@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import "./style.css";
+/* import "./style.css"; */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import CarouselS from "./CarouselS";
+import SlideS from "./SlideS";
 
 export class Carousel extends Component {  
     constructor(props) {
@@ -31,28 +33,28 @@ export class Carousel extends Component {
 
   render() {
     return (
-      <div className="Carousel">
+      <CarouselS >
         <div className="slideShow">
           <div className="arrow_container">
             <FontAwesomeIcon className="arrow" icon={faChevronLeft} onClick={this.HandelBefore}/>
           </div>
           {this.props.imgs.map((element, index) => {
             return (
-              <div className={index === this.state.current ? "slide active" : "slide"} key={index}>
+              <SlideS className={index === this.state.current ? "active" : ""} key={index}>
                 <img src={element.img} alt="" />
                 <div className="img_info">
                   <h3 className="slide_title">{element.title}</h3>
                   <p className="slide_description">{element.description}</p>
                   <a>{this.props.link}</a>
                 </div>
-              </div>
+              </SlideS>
             );
           })}
           <div className="arrow_container">
             <FontAwesomeIcon className="arrow" icon={faChevronRight} onClick={this.HandlePrevious}/>
           </div>
         </div>
-      </div>
+      </CarouselS>
     );
   }
 }

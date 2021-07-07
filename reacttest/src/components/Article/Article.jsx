@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import './style.css'
+import ArticleS from './ArticleS';
 
 export class Article extends Component {
     render() {
         
         return (
-            <div className={"article" + ' ' + (this.props.reverse ? 'reverse' : '')}>
+            <ArticleS >
                 <div className="article_img">
                     <img src={this.props.img} alt="" />
                 </div>
@@ -13,7 +13,7 @@ export class Article extends Component {
                     <h3 className="article_title">{this.props.title}</h3>
                     <p className="article_body">{this.props.body}</p>
                 </div>
-            </div>
+            </ArticleS>
         )
     }
 }

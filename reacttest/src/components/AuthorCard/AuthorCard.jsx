@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import './style.css'
+/* import './style.css' */
+import AuthorCardS from './AuthorCardS';
 
 export class AuthorCard extends Component {
     render() {
         return (
-            <div className="authorCard">
+            <AuthorCardS >
                 <div className="avatar"> 
                     <img src={this.props.img} alt="" />
                 </div>
@@ -13,7 +14,7 @@ export class AuthorCard extends Component {
                     <p><small>{this.props.authorRole}</small></p>
                     <p><small>{this.props.bio}</small></p>
                 </div>
-            </div>
+            </AuthorCardS>
         )
     }
 }

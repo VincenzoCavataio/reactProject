@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
-import './style.css'
+/* import './style.css' */
+import JumbotronS from './JumbotronS';
 
 export class Jumbotron extends Component {
 
-    divStyle = {
+    /* divStyle = {
         backgroundImage: 'url(' + this.props.imgUrl + ')'
-      };
+      }; */
 
     render() {
         return (
-            <div className='jumbotron' style={this.divStyle}>
+            <JumbotronS imgUrl={this.props.imgUrl}>
                 <div className='clame'>
                     <h1 className='main_title'>{this.props.title}</h1>
                     <p className='clame_frase'>{this.props.clame}</p>
-                    <button className={this.props.btnClass}>{this.props.action}</button>
+                    <a href="http://localhost:3000/travel"><button className={this.props.btnClass}>{this.props.action}</button></a>
                 </div>
-            </div>
+            </JumbotronS>
         )
     }
 }
