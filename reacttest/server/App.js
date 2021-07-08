@@ -4,7 +4,7 @@ const cors = require("cors");
 const moment = require("moment");
 var dayjs = require("dayjs");
 var isTomorrow = require("dayjs/plugin/isTomorrow");
-var isYesterday = require('dayjs/plugin/isYesterday');
+var isYesterday = require("dayjs/plugin/isYesterday");
 const port = 8000;
 
 //plugin di dayJs
@@ -21,8 +21,7 @@ app.use(express.json());
 const Data = [
   {
     id: 1,
-    andata: "2021-12-02",
-    ritorno: "2021-12-02",
+    andata: "2021-12-01",
     da: "Milano",
     a: "Roma",
     mezzo: "Aereo",
@@ -32,16 +31,14 @@ const Data = [
   {
     id: 2,
     andata: "2021-12-01",
-    ritorno: "2021-12-02",
-    da: "Milano",
-    a: "Roma",
+    da: "Roma",
+    a: "Milano",
     mezzo: "Aereo",
     prezzo: 400,
   },
   {
     id: 3,
-    andata: "2021-12-02",
-    ritorno: "2021-12-03",
+    andata: "2021-11-30",
     da: "Milano",
     a: "Roma",
     mezzo: "Aereo",
@@ -49,10 +46,17 @@ const Data = [
   },
   {
     id: 4,
-    andata: "12-01-2021",
-    ritorno: "4-02-2021",
-    da: "Milano",
-    a: "Roma",
+    andata: "2021-04-01",
+    da: "Napoli",
+    a: "Torino",
+    mezzo: "Aereo",
+    prezzo: 600,
+  },
+  {
+    id: 5,
+    andata: "2021-12-02",
+    da: "Roma",
+    a: "Milano",
     mezzo: "Aereo",
     prezzo: 600,
   },
@@ -61,33 +65,53 @@ const Data = [
 app.get("/", (req, res) => {
   const UserReq = req.query;
   /* console.log(UserReq); */
-
-  const Price = Data.filter((element) => {
+  /* console.log(moment(UserReq.andata, 'YYYY-DD-DD')); */
+  /* console.log(dayjs(UserReq.andata).format('DD/MM/YYYY')); */
+  let TiketBack = [];
+  let SuggestedTiketBack = [];
+  const Tiket = Data.filter((element) => {
     return (
-      dayjs(element.andata).format('DD/MM/YYYY') == dayjs(UserReq.andata).format('DD/MM/YYYY') &&
-      dayjs(element.ritorno).format('DD/MM/YYYY') == dayjs(UserReq.ritorno).format('DD/MM/YYYY') &&
+      dayjs(element.andata).format("DD/MM/YYYY") == dayjs(UserReq.andata).format("DD/MM/YYYY") &&
       element.da == UserReq.da &&
       element.a == UserReq.a
     );
   });
 
-  const Suggested = Data.filter((element) => {
-    let dayBefore = dayjs(UserReq.andata).add(-1, 'day').format("DD/MM/YYYY") == dayjs(element.andata).add(-1, 'day').format("DD/MM/YYYY");
-    let dayAfter = dayjs(UserReq.ritorno).add(1, 'day').format("DD/MM/YYYY")== dayjs(element.ritorno).add(1, 'day').format("DD/MM/YYYY");
-    let isValid = false;
-
-    if (dayBefore || dayAfter) {
-        isValid = true;
-    }
-
+  const SuggestTiket = Data.filter((element) => {
     return (
+      dayjs(element.andata).format("DD/MM/YYYY") == dayjs(UserReq.andata).add(-1, 'day').format("DD/MM/YYYY") &&
       element.da == UserReq.da &&
-      element.a == UserReq.a && isValid
+      element.a == UserReq.a
     );
   });
-  /* console.log(moment(UserReq.andata, 'YYYY-DD-DD')); */
-  /* console.log(dayjs(UserReq.andata).format('DD/MM/YYYY')); */
-  res.json(Suggested);
+
+  if (UserReq.back) {
+    TiketBack = Data.filter((element) => {
+        return (
+          dayjs(element.andata).format("DD/MM/YYYY") == dayjs(UserReq.ritorno).format("DD/MM/YYYY") &&
+          element.da == UserReq.a &&
+          element.a == UserReq.da
+        );
+      });
+
+      SuggestedTiketBack = Data.filter((element) => {
+        return (
+          dayjs(element.andata).format("DD/MM/YYYY") == dayjs(UserReq.ritorno).add(1, 'day').format("DD/MM/YYYY") &&
+          element.da == UserReq.a &&
+          element.a == UserReq.da
+        );
+      });
+  }
+
+  let formatJson = {
+      andata: [...Tiket],
+      ritorno: [...TiketBack],
+      suggested: {
+          andata : [...SuggestTiket],
+          ritorno: [...SuggestedTiketBack]
+      }
+  }
+  res.json(formatJson);
   /* res.send(); */
 });
 
