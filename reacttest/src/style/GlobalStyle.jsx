@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-const AppS = styled.main`
-  body {
-    font-family: "Courier New", Courier, monospace;
-  }
+const GlobalStyle = styled.main`
+
+  font-family: "Courier New", Courier, monospace;
 
   * {
     margin: 0;
@@ -34,15 +33,15 @@ const AppS = styled.main`
     padding: 12px 20px;
   }
 
-  .teamCards {
+  /* .teamCards {
     display: flex;
     flex-wrap: wrap;
   }
 
   .teamCards .authorCard {
     width: 45%;
-    margin: 0 auto 20px;
-  }
+    margin: 0 auto 20px; 
+  }*/
 
   a {
     text-decoration: none;
@@ -52,7 +51,7 @@ const AppS = styled.main`
   a:hover {
     color: black;
   }
-  @media screen and (max-width: 768px) {
+ /*  @media screen and (max-width: 768px) {
     .teamCards {
       flex-direction: column;
     }
@@ -60,7 +59,7 @@ const AppS = styled.main`
     .teamCards .authorCard {
       width: 90%;
     }
-  }
+  } */
 `;
 
-export default AppS;
+export default GlobalStyle;
