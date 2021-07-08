@@ -20,7 +20,7 @@ app.use(express.json());
 //fake data
 const Data = Tikets;
 
-app.get("/", (req, res) => {
+app.get("/api/tikets", (req, res) => {
   const UserReq = req.query;
   /* console.log(UserReq); */
   /* console.log(dayjs(UserReq.date).add(0, 'day').format('DD/MM/YYYY')); */
