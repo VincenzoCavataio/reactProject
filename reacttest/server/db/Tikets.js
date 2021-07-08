@@ -81,4 +81,5 @@ const Tikets = [
   },
 ];
 
-module.exports = { Tikets }
+module.exports = Tikets
+
