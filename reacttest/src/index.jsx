@@ -1,5 +1,4 @@
 import React from "react";
-
 import ReactDOM from "react-dom";
 import App from "./components/App";
 import "./style/main.css";
@@ -12,6 +11,7 @@ import PageOne from "./pages/PageOne";
 import Article from "./components/Article";
 import AuthorCard from "./components/AuthorCard";
 import TeamSection from "./components/TeamSection";
+import TiketSearch from "./components/TiketSearch";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 /* import GlobalStyle from "./style"; */
 //ricordo di fare array e oggetti vari
@@ -144,7 +144,7 @@ ReactDOM.render(
           </Route>
           <Route exact path='/book' >
             <PageOne pageTitle="Prenota i tuoi biglietti">
-              
+              <TiketSearch />
             </PageOne>
           </Route>
         </App>
