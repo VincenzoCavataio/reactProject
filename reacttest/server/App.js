@@ -62,7 +62,7 @@ app.get("/api/tikets", (req, res) => {
 
     SuggestedTiketBack = GetTiketBack(Data, UserReq, -1);
   }
-
+  //creo oggetto vuoto
   let formatJson = {
     departure: [...Tiket],
     leave: [...TiketBack],

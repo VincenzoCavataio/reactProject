@@ -144,7 +144,7 @@ ReactDOM.render(
               />
             </PageOne>
           </Route>
-          <Route exact path='/tickets' component={PageOne}>
+          <Route exact path='/tickets'>
             <PageOne >
               <Jumbotron
                   imgUrl="https://www.valvoleitalia.it/wp-content/uploads/2014/12/img_banner-thin_mountains.jpg"
