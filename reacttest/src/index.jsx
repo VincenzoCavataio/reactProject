@@ -13,6 +13,7 @@ import AuthorCard from "./components/AuthorCard";
 import TeamSection from "./components/TeamSection";
 import TiketSearch from "./components/TiketSearch";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import TicketsCard from "./components/TicketsCard";
 /* import GlobalStyle from "./style"; */
 //ricordo di fare array e oggetti vari
 //cambio pagine
@@ -62,6 +63,7 @@ ReactDOM.render(
                 clame="sogna viaggiando"
                 action="viaggia qui"
                 btnClass="btn white big"
+                isSearch
               />
               <InfoCard
                 /*ci va la props info, per pulizia ora la metto in state* info={array}*/ cardClass=""
@@ -142,9 +144,17 @@ ReactDOM.render(
               />
             </PageOne>
           </Route>
-          <Route exact path='/book' >
-            <PageOne pageTitle="Prenota i tuoi biglietti">
-              <TiketSearch />
+          <Route exact path='/book' component={PageOne}>
+            <PageOne >
+              <Jumbotron
+                  imgUrl="https://www.valvoleitalia.it/wp-content/uploads/2014/12/img_banner-thin_mountains.jpg"
+                  title="Prenota il tuo biglietto"
+                  clame="sogna viaggiando"
+                  action="viaggia qui"
+                  btnClass="btn white big"
+                  isSearch
+                />
+                <TicketsCard />
             </PageOne>
           </Route>
         </App>

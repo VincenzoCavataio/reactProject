@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './style.css'
+import axios from 'axios';
 
 export class PageOne extends Component {
     //magie con stati 
