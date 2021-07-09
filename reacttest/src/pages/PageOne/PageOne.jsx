@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './style.css'
 
 export class PageOne extends Component {
+    //magie con stati 
     render() {
         let title;
         if (this.props.pageTitle) {

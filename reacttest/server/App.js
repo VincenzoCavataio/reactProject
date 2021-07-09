@@ -75,4 +75,28 @@ app.get("/api/tikets", (req, res) => {
   /* res.send(); */
 });
 
+app.get('/api/allCity', (req, res)=>{
+
+  const getUnique = arr => [...new Set(arr)];
+
+  const getAllItem = (arr, wantedKey) => {
+    const AllItem = arr.map((element) => {return element[wantedKey]});
+    return AllItem;
+  }
+
+  const AllCityFrom = getAllItem(Data, 'from');
+  const AllCityTo = getAllItem(Data, 'to');
+ 
+
+  const CityFrom = getUnique(AllCityFrom);
+  const CityTo =  getUnique(AllCityTo)
+
+  let Cities = {
+    from: [...CityFrom],
+    to: [...CityTo]
+  }
+
+  res.json(Cities);
+});
+
 app.listen(port, () => console.log(`Example app listening on port port!`));
