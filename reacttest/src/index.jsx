@@ -52,7 +52,7 @@ ReactDOM.render(
         <Header
           logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTABSta4ztO2Z73YCEvZDFgCPesndhqt-seBg&usqp=CAU"
           imgName="logo del sito"
-          links={["home", "about", "travel", "book"]}
+          links={["home", "about", "travel"]}
         />
         <App>
           <Route exact path="/home">
@@ -144,7 +144,7 @@ ReactDOM.render(
               />
             </PageOne>
           </Route>
-          <Route exact path='/book' component={PageOne}>
+          <Route exact path='/tickets' component={PageOne}>
             <PageOne >
               <Jumbotron
                   imgUrl="https://www.valvoleitalia.it/wp-content/uploads/2014/12/img_banner-thin_mountains.jpg"
@@ -161,7 +161,7 @@ ReactDOM.render(
         <Footer
           logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTABSta4ztO2Z73YCEvZDFgCPesndhqt-seBg&usqp=CAU"
           imgName="logo del sito"
-          links={["home", "about", "travel", "book"]}
+          links={["home", "about", "travel"]}
         />
       </Router>
   </React.StrictMode>,

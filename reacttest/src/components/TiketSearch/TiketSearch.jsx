@@ -13,7 +13,7 @@ export class TiketSearch extends Component {
       date: "",
       leave: "",
       back: true,
-      tikets: [],
+      tickets: [],
       redirect: false
     };
 
@@ -38,7 +38,7 @@ export class TiketSearch extends Component {
           },
         })
         .then((res) => {
-          this.setState({tikets: res.data, redirect: true});
+          this.setState({tickets: res.data, redirect: true});
         });
     } catch (error) {
       throw new Error("Qualcosa è andato storto");
@@ -50,8 +50,8 @@ export class TiketSearch extends Component {
       if (this.state.redirect) {
           redirect = <Redirect
           to={{
-            pathname: "/book",
-            state: { tikets: this.state.tikets }
+            pathname: "/tickets",
+            state: { tickets: this.state.tickets }
           }}
         />
       }
