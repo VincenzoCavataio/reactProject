@@ -8,7 +8,7 @@ const ShowHideTickets = (props) => {
     const {tickets} = props 
     console.log(tickets);
     /* return <h1>ok</h1> */
-    if (tickets !== {}) {
+    if (tickets.length > 0) {
         return tickets.map(e =>{
             return (
                 <Ticket Ticket={e} key={e.id}/>
@@ -22,10 +22,11 @@ const ShowHideTickets = (props) => {
 const TicketsCard = () => {
     let location = useLocation()
     /* console.log(location.state.tickets); */
-    console.log(location);
-    const Tikets = location.state && location.state.tickets || {}
+    console.log(location.state);
+    const Tikets = location.state && location.state.tickets || []
     return (
-        <TicketsCardS>
+        location.state &&  
+        (<TicketsCardS>
             <h4>-Andata:</h4>
             <ShowHideTickets tickets={Tikets.departure} />
             <h4>-ritorno:</h4>
@@ -34,7 +35,8 @@ const TicketsCard = () => {
             <ShowHideTickets tickets={Tikets.suggested.departure} />
             <h4>-Consigliati per il ritorno:</h4>
             <ShowHideTickets tickets={Tikets.suggested.leave} />
-        </TicketsCardS>
+        </TicketsCardS>) || 
+        <h1>non ci stano i bliglietti bro</h1>
     )
 }
 

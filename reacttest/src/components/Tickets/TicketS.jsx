@@ -32,6 +32,10 @@ background-color: white;
     transition: all 0.2s ease-out;
 
   }
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 export default TicketS
