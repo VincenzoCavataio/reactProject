@@ -60,7 +60,7 @@ app.get("/api/tikets", (req, res) => {
   if (UserReq.back) {
     TiketBack = GetTiketBack(Data, UserReq, 0);
 
-    SuggestedTiketBack = GetTiketBack(Data, UserReq, -1);
+    SuggestedTiketBack = GetTiketBack(Data, UserReq, 1);
   }
   //creo oggetto vuoto
   let formatJson = {

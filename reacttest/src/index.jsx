@@ -11,7 +11,6 @@ import PageOne from "./pages/PageOne";
 import Article from "./components/Article";
 import AuthorCard from "./components/AuthorCard";
 import TeamSection from "./components/TeamSection";
-import TiketSearch from "./components/TiketSearch";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import TicketsCard from "./components/TicketsCard";
 /* import GlobalStyle from "./style"; */

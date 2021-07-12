@@ -23,6 +23,8 @@ const TiketSearchS = styled.div`
       padding: 0 20px;
       margin:  0 20px;
       border: 2px solid white;
+      display: flex;
+      align-items: center;
   }
 
   button {

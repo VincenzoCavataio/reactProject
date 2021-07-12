@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router'
 import Ticket from '../Tickets'
 import TicketsCardS from './TicketsCardS'
+import NoActiveSearch from '../NoActiveSearch'
 
 
 const ShowHideTickets = (props) => {
@@ -36,7 +37,7 @@ const TicketsCard = () => {
             <h4>-Consigliati per il ritorno:</h4>
             <ShowHideTickets tickets={Tikets.suggested.leave} />
         </TicketsCardS>) || 
-        <h1>non ci stano i bliglietti bro</h1>
+        <NoActiveSearch />
     )
 }
 
