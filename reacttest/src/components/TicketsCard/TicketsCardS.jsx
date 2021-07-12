@@ -6,6 +6,9 @@ const TicketsCardS = styled.div`
     h4 {
         font-size: 25px;
     }
+    @media screen and (max-width: 568px) {
+        padding: 10px;
+    }
 `;
 
 export default TicketsCardS

@@ -80,6 +80,7 @@ export class TiketSearch extends Component {
         <select
           name="from"
           id="from"
+          className='ml15 mbMedia'
           placeholder="stazione di partenza"
           onChange={(e) => this.HandleValue(e, "from")}
         >
@@ -93,6 +94,7 @@ export class TiketSearch extends Component {
         </select>
         {/* <label htmlFor="to">Stazione di arrivo:</label> */}
         <select
+        className='ml15 mbMedia'
           name="to"
           id="to"
           placeholder="stazione di arrivo"
@@ -108,13 +110,14 @@ export class TiketSearch extends Component {
         </select>
         {/* <label htmlFor="date">Data partenza</label> */}
         <input
+        className='ml15 mbMedia maxH'
           type="date"
           id="date"
           name="date"
           onChange={(e) => this.HandleValue(e, "date")}
         />
         {/* <Dpicker /> */}
-        <div className="leave">
+        <div className="leave ml15 mbMedia maxH">
           <label htmlFor="back">andata e ritorno </label>
           <input
             type="checkbox"
@@ -122,18 +125,20 @@ export class TiketSearch extends Component {
             id="back"
             checked={this.state.back}
             onChange={this.HandleCheck}
+            className='ml15'
           />
           {/* <label htmlFor="date">Data giorno di ritorno</label>  */}
           <input
             type="date"
-            id="leave"
+            id="leave_"
             name="leave"
+            className='ml15 mbMedia'
             onChange={(e) => this.HandleValue(e, "leave")}
             disabled={!this.state.back}
           />
           {/* <Dpicker /> */}
         </div>
-        <button onClick={this.findTickets} disabled={!this.isActive}>
+        <button onClick={this.findTickets} disabled={!this.isActive} className='ml15 mbMedia'>
           Cerca disponibilità
         </button>
         {redirect}

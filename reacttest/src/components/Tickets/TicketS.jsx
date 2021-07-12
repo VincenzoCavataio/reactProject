@@ -39,7 +39,7 @@ const TicketS = styled.div`
     background: #a7cef5;
     content: "";
     display: inline-block;
-    height: 0.6300rem;
+    height: 0.63rem;
     left: -0.5rem;
     position: absolute;
     width: 0.875rem;
@@ -96,8 +96,12 @@ const TicketS = styled.div`
     font-weight: bold;
   }
 
-  @media screen and (max-width: 768px) {
-    width: 80%;
+  .maxH {
+    max-height: 30px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
   }
 `;
 
