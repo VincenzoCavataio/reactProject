@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
-import { useHistory } from "react-router";
+import Dpicker from "../Dpicker";
+import TiketSearchS from "./TiketSearchS";
 import axios from "axios";
-
 
 export class TiketSearch extends Component {
   constructor(props) {
@@ -13,17 +13,24 @@ export class TiketSearch extends Component {
       to: "",
       date: "",
       leave: "",
-      back: true,
+      back: false,
       tickets: [],
-      redirect: false
+      redirect: false,
+      isActive: false
     };
 
     this.HandleValue = this.HandleValue.bind(this);
     this.findTickets = this.findTickets.bind(this);
+    this.HandleCheck = this.HandleCheck.bind(this);
+    /* this.isActive = this.isActive.bind(this); */
   }
 
   HandleValue(e, key) {
     this.setState({ [key]: e.target.value });
+  }
+
+  HandleCheck() {
+    this.setState({ back: !this.state.back });
   }
 
   findTickets() {
@@ -39,25 +46,36 @@ export class TiketSearch extends Component {
           },
         })
         .then((res) => {
-          this.setState({tickets: res.data, redirect: true});
+          this.setState({ tickets: res.data, redirect: true });
         });
     } catch (error) {
       throw new Error("Qualcosa è andato storto");
     }
   }
 
+  isActive() {
+    const { from, to, date } = this.state;
+
+    if (from && to && date) {
+      this.setState({isActive: true}) 
+    }
+
+  }
+
   render() {
-      let redirect = false;
-      if (this.state.redirect) {
-          redirect = <Redirect
+    let redirect = false;
+    if (this.state.redirect) {
+      redirect = (
+        <Redirect
           to={{
             pathname: "/tickets",
-            state: { tickets: this.state.tickets }
+            state: { tickets: this.state.tickets },
           }}
         />
-      }
+      );
+    }
     return (
-      <div>
+      <TiketSearchS>
         {/* <label htmlFor="from">Stazione di partenza:</label> */}
         <select
           name="from"
@@ -65,8 +83,12 @@ export class TiketSearch extends Component {
           placeholder="stazione di partenza"
           onChange={(e) => this.HandleValue(e, "from")}
         >
-          {this.props.from.map((element) => {
-            return <option value={element}>{element}</option>;
+          {this.props.from.map((element, index) => {
+            return (
+              <option value={element} key={index}>
+                {element}
+              </option>
+            );
           })}
         </select>
         {/* <label htmlFor="to">Stazione di arrivo:</label> */}
@@ -76,8 +98,12 @@ export class TiketSearch extends Component {
           placeholder="stazione di arrivo"
           onChange={(e) => this.HandleValue(e, "to")}
         >
-          {this.props.to.map((element) => {
-            return <option value={element}>{element}</option>;
+          {this.props.to.map((element, index) => {
+            return (
+              <option value={element} key={index}>
+                {element}
+              </option>
+            );
           })}
         </select>
         {/* <label htmlFor="date">Data partenza</label> */}
@@ -87,18 +113,31 @@ export class TiketSearch extends Component {
           name="date"
           onChange={(e) => this.HandleValue(e, "date")}
         />
-        {/* <label htmlFor="back">andata e ritorno </label> */}
-        <input type="checkbox" name="back" id="back" />
-        {/* <label htmlFor="date">Data giorno di ritorno</label> */}
-        <input
-          type="date"
-          id="leave"
-          name="leave"
-          onChange={(e) => this.HandleValue(e, "leave")}
-        />
-        <button onClick={this.findTickets}>Cerca disponobolità</button>
+        {/* <Dpicker /> */}
+        <div className="leave">
+          <label htmlFor="back">andata e ritorno </label>
+          <input
+            type="checkbox"
+            name="back"
+            id="back"
+            checked={this.state.back}
+            onChange={this.HandleCheck}
+          />
+          {/* <label htmlFor="date">Data giorno di ritorno</label>  */}
+          <input
+            type="date"
+            id="leave"
+            name="leave"
+            onChange={(e) => this.HandleValue(e, "leave")}
+            disabled={!this.state.back}
+          />
+          {/* <Dpicker /> */}
+        </div>
+        <button onClick={this.findTickets} disabled={!this.isActive}>
+          Cerca disponibilità
+        </button>
         {redirect}
-      </div>
+      </TiketSearchS>
     );
   }
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router'
+import Ticket from '../Tickets'
+import TicketsCardS from './TicketsCardS'
 
 
 const ShowHideTickets = (props) => {
@@ -7,18 +9,13 @@ const ShowHideTickets = (props) => {
     console.log(tickets);
     /* return <h1>ok</h1> */
     if (tickets !== {}) {
-        return tickets.departure.map(e =>{
+        return tickets.map(e =>{
             return (
-                <div>
-                    <p>biglietto id: {e.id}</p>
-                    <h3>partenza da: {e.from}</h3>
-                    <p>in data: {e.date}</p>
-                    <p>al prezzo di: {e.price} €</p>
-                </div>
+                <Ticket Ticket={e} key={e.id}/>
             )
         })
     } else {
-        return <h3>no ticket</h3>
+        return <h3>nessun biglietto torvato</h3>
     }
 }
 
@@ -28,9 +25,16 @@ const TicketsCard = () => {
     console.log(location);
     const Tikets = location.state && location.state.tickets || {}
     return (
-        <div>
-            <ShowHideTickets tickets={Tikets} />
-        </div>
+        <TicketsCardS>
+            <h4>-Andata:</h4>
+            <ShowHideTickets tickets={Tikets.departure} />
+            <h4>-ritorno:</h4>
+            <ShowHideTickets tickets={Tikets.leave} />
+            <h4>-Consigliati per l'andata:</h4>
+            <ShowHideTickets tickets={Tikets.suggested.departure} />
+            <h4>-Consigliati per il ritorno:</h4>
+            <ShowHideTickets tickets={Tikets.suggested.leave} />
+        </TicketsCardS>
     )
 }
 
